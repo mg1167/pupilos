@@ -3,17 +3,30 @@
 	<head>
 		<meta charset = "utf-8">
 		<title>Cuadro de Alumnos</title>
+		<link href="css/libs/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles.css">
+
 	</head>
 	<body ng-controller= "AlumnosController">
-			<h1 align = "center">Segunda Generacion</h1>
+			<h1>Segunda Generación</h1>
 			<hr width = "90%">
 		<div class = "wrapper">
-		<div class = "contact-item" ng-repeat="alumno in alumnos" align ="center">
-			<div> {{alumno.nombre}} - {{alumno.Genero}}</div>
-			<span>{{alumno.trabajo}}</span>
+			<div class = "contact-item" align ="center" ng-repeat="alumno in alumnos | orderBy: 'nombre'"  >
+				<div> {{alumno.nombre}} - {{alumno.Genero}}</div>
+					<span>{{alumno.trabajo}}</span>
+			</div>
 		</div>
+		<br/>
+		<h2>Añadir Integrante</h2>
+		<hr width = "90%">
+		<div class = "Adicion"><br>
+			Nombre: <input type="text" ng-model= "nuevoAlumno.nombre"></input><br/><br/>
+			Genero: <input type="text" ng-model= "nuevoAlumno.Genero"></input><br/><br/>
+			trabajo: <input type="text" ng-model= "nuevoAlumno.trabajo"></input><br/><br/>
+			<button ng-click = "Save()">Aceptar</button>
 		</div>
+		<br/>
+		<script src="js/libs/bootstrap.js"></script>
 		<script src = "script.js" type="text/javascript"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
